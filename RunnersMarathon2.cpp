@@ -7,7 +7,7 @@
 #include <string>
 #include <iomanip>
 
-const int MAX_RUNNERS = 6;
+const int MAX_RUNNERS = 50;
 const int DAYS = 7;
 const int COL = 10;
 
