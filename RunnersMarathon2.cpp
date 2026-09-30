@@ -44,7 +44,11 @@ int readRunnerData(Runners runner[])
             }
         }
         accessable++;
+        if (i == (MAX_RUNNERS - 1)) {
+            std::cout << "Maximum array size reached, Closing file... \n";
+        }
     }
+    
     file.close();
     return accessable;
 }
