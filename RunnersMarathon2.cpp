@@ -21,6 +21,7 @@ struct Runners
 int readRunnerData(Runners runner[])
 {
     int accessable = 0;
+    int filled;
     std::ifstream file("runners.txt");
 
     if (!file.is_open()) {
@@ -35,6 +36,7 @@ int readRunnerData(Runners runner[])
 
     for (int i = 0; std::getline(file, line) && i < MAX_RUNNERS; i++) {
         std::istringstream stream(line);
+        filled = 0;
         for (int j = 0; stream >> word; j++) {
             if (j == 0) {
                 runner[i].name = word;
@@ -42,8 +44,17 @@ int readRunnerData(Runners runner[])
             else {
                 runner[i].miles[j-1] = std::stod(word);
             }
+            filled++;
         }
-        accessable++;
+        if ((filled-1) != DAYS) {
+            std::cout << "Runner record incomplete. Will not include runner in final table \n";
+            i--;
+        }
+        else {
+            accessable++;
+        }
+        
+
         if (i == (MAX_RUNNERS - 1)) {
             std::cout << "Maximum array size reached, Closing file... \n";
         }
