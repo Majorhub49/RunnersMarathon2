@@ -7,7 +7,7 @@
 #include <string>
 #include <iomanip>
 
-const int MAX_RUNNERS = 50;
+const int MAX_RUNNERS = 6;
 const int DAYS = 7;
 const int COL = 10;
 
@@ -33,7 +33,7 @@ int readRunnerData(Runners runner[])
     // i = line read
     // j = string read
 
-    for (int i = 0; std::getline(file, line); i++) {
+    for (int i = 0; std::getline(file, line) && i < MAX_RUNNERS; i++) {
         std::istringstream stream(line);
         for (int j = 0; stream >> word; j++) {
             if (j == 0) {
