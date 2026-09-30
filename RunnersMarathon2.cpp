@@ -24,8 +24,8 @@ int readRunnerData(Runners runner[])
     std::ifstream file("runners.txt");
 
     if (!file.is_open()) {
-        std::cerr << "error opening file";
-
+        std::cerr << "error opening file\n";
+        return 0;
     }
     std::string line;
     std::string word;
